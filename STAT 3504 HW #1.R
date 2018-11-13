@@ -1,0 +1,16 @@
+library(TSA)
+data(tempdub)
+print(tempdub)
+plot(tempdub,ylab='Temperature',type='l')
+months = c("J","F","M", "A","M", "J","J","A","S","O","N","D")
+points(tempdub, pch=months)
+
+library(astsa)
+data(jj)
+print(jj)
+plot(jj, type="o", ylab="Quarterly Earnings per Share")
+plot(log(jj), type="o", ylab="Quarterly Earnings per Share")
+v = filter(log(jj), rep(1/4, 4), sides = 1)
+print(v)
+lines(v, lty=2)
+
